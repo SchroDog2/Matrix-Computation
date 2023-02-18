@@ -147,9 +147,3 @@ class BairstowSolver:
             return [(-b + sqrt_term) / (2 * a), (-b - sqrt_term) / (2 * a)]
         elif b != 0:
             return [-c / b]
-
-
-if __name__ == "__main__":
-    solver = BairstowSolver(0.01, 0.01)
-    solver.solve([4, -10, 10, -5, 1], r=0.5, s=-0.5)
-    
