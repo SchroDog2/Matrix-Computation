@@ -6,6 +6,7 @@ from typing import Iterable
 
 class Solver(ABC):
     """base solver class for solving system of linear equations"""
+
     def __init__(self, verbose=True) -> None:
         """instantiate a solver object"""
         self.A = None  # extended matrix with dimension N * (N + 1)
@@ -26,6 +27,7 @@ class Solver(ABC):
                 [-8, 1, -2, -20]
             ]
         """
+        # note dtype of A must be float
         self.A = np.array(A, dtype=float)
         nrow, ncol = self.A.shape
         if not nrow + 1 == ncol:
@@ -48,9 +50,7 @@ class Solver(ABC):
         """solve lower triangular matrix using forward substitution"""
         x = np.ndarray(self.N, float)
         for i in range(self.N):
-            x[i] = (
-                self.A[i, self.N] - sum(self.A[i, : (i + 1)] * x[: i + 1])
-            ) / self.A[i, i]
+            x[i] = (self.A[i, self.N] - sum(self.A[i, :i] * x[:i])) / self.A[i, i]
         return x
 
     def print_matrix_if_verbose(self, A, title=None):

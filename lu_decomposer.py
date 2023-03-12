@@ -6,9 +6,10 @@ import numpy as np
 # todo: this class should live in a separate module for matrix operation
 class LUDecomposer:
     """class that decomposes a square matrix using LU decomposition,
-    namely A = LU where L is a lower triangular matrix and U is an 
+    namely A = LU where L is a lower triangular matrix and U is an
     upper triangular matrix.
     """
+
     def __init__(self, verbose=True) -> None:
         self.L = None
         self.U = None
@@ -25,7 +26,7 @@ class LUDecomposer:
             ]
         """
         if not isinstance(A, np.ndarray):
-            A = np.array(A)
+            A = np.array(A, dtype=float)
         nrow, ncol = A.shape
         if nrow != ncol:
             raise ValueError("A must be square matrix.")
@@ -34,8 +35,8 @@ class LUDecomposer:
         self.U = A
         self.print_matrix_if_verbose(self.L, title="L Matrix")
         self.print_matrix_if_verbose(self.U, title="U Matrix")
-        
-    def solve(self) -> Tuple[Iterable[Iterable], Iterable[Iterable]]:
+
+    def decompose(self) -> Tuple[Iterable[Iterable], Iterable[Iterable]]:
         """returns tuple that contains L and U matrices"""
         # eliminate rows in U matrix below row i
         for i in range(self.N - 1):

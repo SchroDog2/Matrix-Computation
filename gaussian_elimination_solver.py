@@ -8,6 +8,7 @@ class GaussianEliminationSolver(Solver):
     that implements partial pivoting. Currently only applies to well conditioned
     n variable n equations system.
     """
+
     def solve(self) -> Iterable:
         """for each row in matrix A, swap rows so that element (i, i) is the largest in abs
         value. then use row i to cancel rows below. returns solution to the linear system

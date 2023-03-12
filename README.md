@@ -1,11 +1,10 @@
 # Random-Stuff
 
 ## Bairstow's Method for Solving Real and Imaginary Roots for Real Polynomials
-
 This is an implementation following this link:
 https://archive.nptel.ac.in/content/storage2/courses/122104019/numerical-analysis/Rathish-kumar/ratish-1/f3node9.html
 
-
+# todo: generate doc result instead of hard coded
 ```
 from bairstow_solver import BairstowSolver
 
@@ -43,8 +42,7 @@ x4 = 1.0001 + -1.0000i
 ```
 
 
-## Gaussian Elimination
-
+## Gaussian Elimination Solver
 A simple class that implements Gaussian Elimination with partial pivoting for linear system of equations.
 ```
 from gaussian_elimination_solver import GaussianEliminationSolver
@@ -87,4 +85,56 @@ result = eliminator.solve()
 
 ========== Solved Solution ============
 [ 4.  8. -2.]
+```
+
+
+## L-U Decomposition
+A class that decompose a square matrix using L-U decomposition.
+
+```
+A = [
+    [ 2,  4,  3,  5],
+    [-4, -7, -5, -8],
+    [ 6,  8,  2,  9],
+    [ 4,  9, -2, 14]
+]
+decomposer = LUDecomposer()
+decomposer.set(A)
+
+L, U = decomposer.decompose()
+```
+
+```
+... (verbose output)
+
+========== L Matrix - Iter 3 ============
+[[ 1.  0.  0.  0.]
+ [-2.  1.  0.  0.]
+ [ 3. -4.  1.  0.]
+ [ 2.  1.  3.  1.]]
+
+========== U Matrix - Iter 3 ============
+[[ 2  4  3  5]
+ [ 0  1  1  2]
+ [ 0  0 -3  2]
+ [ 0  0  0 -4]]
+```
+
+## L-U Decomposition Solver
+A solver class that sovles system of linear equations using LU decompostion.
+```
+from lu_decomposition_solver import LUDecompositionSolver
+
+A = [[7, 2, -3, 1], [2, 5, -3, 0], [1, -1, -6, 0]]
+    solver = LUDecompositionSolver()
+    solver.set(A)
+    x = solver.solve()
+```
+
+## Matrix Inverse using L-U Decomposition
+```
+from lu_decomposition_solver import matrix_inv_lu
+
+A = [[7, 2, -3], [2, 5, -3], [1, -1, -6]]
+inv = matrix_inv_lu(A, verbose=False)
 ```
