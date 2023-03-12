@@ -47,14 +47,14 @@ x4 = 1.0001 + -1.0000i
 
 A simple class that implements Gaussian Elimination with partial pivoting for linear system of equations.
 ```
-from gaussian_eliminator import GaussianEliminator
+from gaussian_elimination_solver import GaussianEliminationSolver
 
 A = [
     [2, -6, -1, -38],
     [-3, -1, 7, -34],
     [-8, 1, -2, -20]
 ]
-eliminator = GaussianEliminator(verbose=True)
+eliminator = GaussianEliminationSolver(verbose=True)
 eliminator.set(A)
 result = eliminator.solve()
 ```
@@ -65,28 +65,26 @@ result = eliminator.solve()
  [ -3.  -1.   7. -34.]
  [ -8.   1.  -2. -20.]]
 
-In [17]: result = eliminator.solve()
-
-============ Pivoting and Swap ==============
+========== Pivoting and Swap ============
 [[ -8.   1.  -2. -20.]
  [ -3.  -1.   7. -34.]
  [  2.  -6.  -1. -38.]]
 
-============== Eliminating ================
+========== Eliminating ============
 [[ -8.      1.     -2.    -20.   ]
  [  0.     -1.375   7.75  -26.5  ]
  [  0.     -5.75   -1.5   -43.   ]]
 
-============ Pivoting and Swap ==============
+========== Pivoting and Swap ============
 [[ -8.      1.     -2.    -20.   ]
  [  0.     -5.75   -1.5   -43.   ]
  [  0.     -1.375   7.75  -26.5  ]]
 
-============== Eliminating ================
+========== Eliminating ============
 [[ -8.           1.          -2.         -20.        ]
  [  0.          -5.75        -1.5        -43.        ]
  [  0.           0.           8.10869565 -16.2173913 ]]
 
-============== Solved Solution ================
+========== Solved Solution ============
 [ 4.  8. -2.]
 ```
