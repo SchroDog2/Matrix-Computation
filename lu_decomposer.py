@@ -9,7 +9,6 @@ class LUDecomposer:
     namely A = LU where L is a lower triangular matrix and U is an
     upper triangular matrix.
     """
-
     def __init__(self, verbose=True) -> None:
         self.L = None
         self.U = None

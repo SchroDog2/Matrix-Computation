@@ -1,14 +1,13 @@
 from typing import Iterable
 
-from solver import Solver
+from solver import GaussianSolver
 
 
-class GaussianEliminationSolver(Solver):
+class GaussianEliminationSolver(GaussianSolver):
     """class that solves linear system using Gaussian elimination method
     that implements partial pivoting. Currently only applies to well conditioned
     n variable n equations system.
     """
-
     def solve(self) -> Iterable:
         """for each row in matrix A, swap rows so that element (i, i) is the largest in abs
         value. then use row i to cancel rows below. returns solution to the linear system

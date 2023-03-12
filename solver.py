@@ -6,7 +6,6 @@ from typing import Iterable
 
 class Solver(ABC):
     """base solver class for solving system of linear equations"""
-
     def __init__(self, verbose=True) -> None:
         """instantiate a solver object"""
         self.A = None  # extended matrix with dimension N * (N + 1)
@@ -34,6 +33,15 @@ class Solver(ABC):
             raise ValueError("Expecting square matrix for coefficient A")
         self.N = nrow
         self.print_matrix_if_verbose(self.A, title="Linear System Set Up")
+
+
+class GaussianSolver(Solver):
+    """base Gaussian solver class for solving system of linear equations.
+    this base class implements the forward and backward substition methods
+    """
+    def __init__(self, verbose=True) -> None:
+        """instantiate a solver object"""
+        super().__init__(verbose)
 
     def backward_substitute(self):
         """solve upper triangular matrix using backward substitution"""
