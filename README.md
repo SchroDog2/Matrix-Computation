@@ -1,10 +1,11 @@
+todo: autodoc
+
 # Random-Stuff
 
 ## Bairstow's Method for Solving Real and Imaginary Roots for Real Polynomials
 This is an implementation following this link:
 https://archive.nptel.ac.in/content/storage2/courses/122104019/numerical-analysis/Rathish-kumar/ratish-1/f3node9.html
 
-# todo: generate doc result instead of hard coded
 ```
 from bairstow_solver import BairstowSolver
 
