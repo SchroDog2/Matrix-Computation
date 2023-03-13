@@ -141,9 +141,9 @@ A solver class that sovles system of linear equations using LU decompostion.
 from lu_decomposition_solver import LUDecompositionSolver
 
 A = [[7, 2, -3, 1], [2, 5, -3, 0], [1, -1, -6, 0]]
-    solver = LUDecompositionSolver()
-    solver.set(A)
-    x = solver.solve()
+solver = LUDecompositionSolver()
+solver.set(A)
+x = solver.solve()
 ```
 
 ## Matrix Inverse using L-U Decomposition
