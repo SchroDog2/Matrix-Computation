@@ -3,10 +3,10 @@ from typing import Iterable
 import numpy as np
 
 from lu_decomposer import LUDecomposer
-from solver import GaussianSolver
+from solver import LUSolver
 
 
-class LUDecompositionSolver(GaussianSolver):
+class LUDecompositionSolver(LUSolver):
     """class that decomposes a matrix using LU decomposition,
     namely A = LU where L is a lower triangular matrix and U
     is an upper triangular matrix.

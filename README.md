@@ -87,6 +87,20 @@ result = eliminator.solve()
 [ 4.  8. -2.]
 ```
 
+## Gauss-Seidel Solver
+Class that implements Gauss-Seidel method to iteratively solve the linear system.
+```
+from gauss_seidel_solver import GuassSeidelSolver
+
+A = [
+    [-3,  1, 15, 44],
+    [ 6, -2,  1,  5],
+    [ 5, 10,  1, 28]
+]
+solver = GuassSeidelSolver(verbose=False)
+solver.set(A, relaxation=0.95, tolerance=0.05)
+solution = solver.solve()
+```
 
 ## L-U Decomposition
 A class that decompose a square matrix using L-U decomposition.

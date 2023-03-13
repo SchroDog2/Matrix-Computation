@@ -1,9 +1,9 @@
 from typing import Iterable
 
-from solver import GaussianSolver
+from solver import LUSolver
 
 
-class GaussianEliminationSolver(GaussianSolver):
+class GaussianEliminationSolver(LUSolver):
     """class that solves linear system using Gaussian elimination method
     that implements partial pivoting. Currently only applies to well conditioned
     n variable n equations system.

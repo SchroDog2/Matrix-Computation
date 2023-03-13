@@ -34,9 +34,22 @@ class Solver(ABC):
         self.N = nrow
         self.print_matrix_if_verbose(self.A, title="Linear System Set Up")
 
+    def print_matrix_if_verbose(self, A, title=None):
+        """print the given matrix if verbose"""
+        if self.verbose:
+            print(f"\n========== {title} ============")
+            print(A)
 
-class GaussianSolver(Solver):
-    """base Gaussian solver class for solving system of linear equations.
+    def print_vector_if_verbose(self, x, title=None):
+        """print the given vector if verbose"""
+        if self.verbose:
+            print(f"\n========== {title} ============")
+            print(x)
+
+
+class LUSolver(Solver):
+    """base LU solver class for solving system of linear equations
+    where coefficient matrix is either upper diagonal or lower diagonal.
     this base class implements the forward and backward substition methods
     """
     def __init__(self, verbose=True) -> None:
@@ -60,15 +73,3 @@ class GaussianSolver(Solver):
         for i in range(self.N):
             x[i] = (self.A[i, self.N] - sum(self.A[i, :i] * x[:i])) / self.A[i, i]
         return x
-
-    def print_matrix_if_verbose(self, A, title=None):
-        """print the given matrix if verbose"""
-        if self.verbose:
-            print(f"\n========== {title} ============")
-            print(A)
-
-    def print_vector_if_verbose(self, x, title=None):
-        """print the given vector if verbose"""
-        if self.verbose:
-            print(f"\n========== {title} ============")
-            print(x)
