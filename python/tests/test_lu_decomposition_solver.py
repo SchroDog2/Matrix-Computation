@@ -15,9 +15,4 @@ def test_solve():
 def test_matrix_inv_lu():
     A = [[7, 2, -3], [2, 5, -3], [1, -1, -6]]
     inv = matrix_inv_lu(A)
-    assert_allclose(
-        np.matmul(np.array(A, dtype=float), inv),
-        np.identity(3), 
-        atol=1e-6
-    )
-    
+    assert_allclose(np.matmul(np.array(A, dtype=float), inv), np.identity(3), atol=1e-6)

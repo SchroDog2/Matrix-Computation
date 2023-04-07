@@ -1,6 +1,4 @@
-todo: autodoc
-
-# Random-Stuff
+# Python Implementation
 
 ## Bairstow's Method for Solving Real and Imaginary Roots for Real Polynomials
 This is an implementation following this link:

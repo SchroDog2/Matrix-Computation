@@ -4,22 +4,18 @@ import numpy as np
 
 
 def test_solve_when_converge():
-    A = [
-        [-3,  1, 15, 44],
-        [ 6, -2,  1,  5],
-        [ 5, 10,  1, 28]
-    ]
+    A = [[-3, 1, 15, 44], [6, -2, 1, 5], [5, 10, 1, 28]]
     solver = GuassSeidelSolver()
     # no relaxation
     solver.set(A, tolerance=0.05)
     solution = solver.solve()
     assert_allclose(
         np.matmul(
-            np.array(A, dtype=float)[:, :3], 
-            np.array(solution, dtype=float).reshape(3,1)
+            np.array(A, dtype=float)[:, :3],
+            np.array(solution, dtype=float).reshape(3, 1),
         ).reshape(3),
         np.array([44, 5, 28], dtype=float),
-        rtol=0.05
+        rtol=0.05,
     )
 
     # relaxation 0.95
@@ -27,10 +23,9 @@ def test_solve_when_converge():
     solution = solver.solve()
     assert_allclose(
         np.matmul(
-            np.array(A, dtype=float)[:, :3], 
-            np.array(solution, dtype=float).reshape(3,1)
+            np.array(A, dtype=float)[:, :3],
+            np.array(solution, dtype=float).reshape(3, 1),
         ).reshape(3),
         np.array([44, 5, 28], dtype=float),
-        rtol=0.05
+        rtol=0.05,
     )
-

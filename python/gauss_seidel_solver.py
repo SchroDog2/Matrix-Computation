@@ -8,6 +8,7 @@ from solver import Solver
 # todo: some methods are the same as GaussianEliminationSolver. refactor
 class GuassSeidelSolver(Solver):
     """class that implements Gauss-Seidel method for solving linear system"""
+
     def set(self, A: Iterable[Iterable], tolerance=0.05, relaxation=1) -> None:
         """tolerance specifies the stopping criterion for approximation error
         relaxation specifies x_new = relaxation * x_new + (1-relaxation) * x_old
@@ -20,7 +21,7 @@ class GuassSeidelSolver(Solver):
         # swap rows so that the values on diagonal are relatively large
         for i in range(self.N):
             self.partial_pivot_and_swap(i)
-        
+
         # initial guess with zeroes
         curr = np.zeros(self.N)
         approx_err = 1
@@ -58,5 +59,9 @@ class GuassSeidelSolver(Solver):
         # ) / np.diag(self.A)
         x = np.zeros(self.N, dtype=float)
         for i in range(self.N):
-            x[i] = (self.A[i, self.N] - sum(self.A[i,:i]*prev[:1]) - sum(self.A[i, i+1:self.N] * prev[i+1:])) / self.A[i,i]
+            x[i] = (
+                self.A[i, self.N]
+                - sum(self.A[i, :i] * prev[:1])
+                - sum(self.A[i, i + 1 : self.N] * prev[i + 1 :])
+            ) / self.A[i, i]
         return x

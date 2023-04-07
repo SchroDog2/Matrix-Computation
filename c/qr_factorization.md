@@ -29,3 +29,9 @@ Compare the results in terms of efficiency, robustness, numerical stability, and
 2. Numerical recipes the art of scientific computing (William H. Press, Saul A. Teukolsky etc., Chapter 2.10)
 
 3. Accuracy and Stability of Numerical Algorithms, Second Edition (Nicholas J. Higham, Chapter 19)
+
+
+# steps
+1. review householder and givens algo
+2. genearate testing matrix
+3. experiment

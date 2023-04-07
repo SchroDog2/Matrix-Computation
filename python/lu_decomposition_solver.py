@@ -48,7 +48,7 @@ def matrix_inv_lu(A, verbose=True):
     if not nrow == ncol:
         raise ValueError("A must be a square matrix")
     solver = LUDecompositionSolver(verbose)
-    
+
     # each column of the inverse matrix is a separate solution
     # of a linear system by setting proper b vector
     inv = np.zeros(shape=(nrow, ncol), dtype=float)
@@ -61,7 +61,7 @@ def matrix_inv_lu(A, verbose=True):
         x = solver.solve()
         # place the result into the solution matrix
         inv[:, i] = x
-    
+
     if verbose:
         print("============ Solved Inverse Matrix ============")
         print(inv)
