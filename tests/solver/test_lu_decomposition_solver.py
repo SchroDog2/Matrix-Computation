@@ -1,7 +1,8 @@
 import numpy as np
-
 from numpy.testing import assert_allclose
-from lu_decomposition_solver import LUDecompositionSolver, matrix_inv_lu
+
+from core.solver.lu_decomposition_solver import (LUDecompositionSolver,
+                                                 matrix_inv_lu)
 
 
 def test_solve():

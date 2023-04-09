@@ -2,8 +2,8 @@ from typing import Iterable
 
 import numpy as np
 
-from lu_decomposer import LUDecomposer
-from solver import LUSolver
+from core.factorization.lu import LUDecomposer
+from core.solver.solver import LUSolver
 
 
 class LUDecompositionSolver(LUSolver):

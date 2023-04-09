@@ -1,6 +1,6 @@
 from typing import Iterable
 
-from solver import LUSolver
+from core.solver.solver import LUSolver
 
 
 class GaussianEliminationSolver(LUSolver):

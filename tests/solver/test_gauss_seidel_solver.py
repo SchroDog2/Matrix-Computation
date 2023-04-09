@@ -1,6 +1,7 @@
-from gauss_seidel_solver import GuassSeidelSolver
-from numpy.testing import assert_allclose
 import numpy as np
+from numpy.testing import assert_allclose
+
+from core.solver.gauss_seidel_solver import GuassSeidelSolver
 
 
 def test_solve_when_converge():

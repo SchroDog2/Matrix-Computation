@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 
 from numpy.testing import assert_almost_equal
-from qr import classical_gram_schmidt, modified_gram_schmidt, house_qr
+from core.factorization.qr import classical_gram_schmidt, modified_gram_schmidt, house_qr
 
 
 @pytest.fixture

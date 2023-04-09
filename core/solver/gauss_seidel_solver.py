@@ -2,7 +2,7 @@ from typing import Iterable
 
 import numpy as np
 
-from solver import Solver
+from core.solver.solver import Solver
 
 
 # todo: some methods are the same as GaussianEliminationSolver. refactor
