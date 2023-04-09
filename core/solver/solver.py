@@ -6,6 +6,7 @@ from typing import Iterable
 
 class Solver(ABC):
     """base solver class for solving system of linear equations"""
+
     def __init__(self, verbose=True) -> None:
         """instantiate a solver object"""
         self.A = None  # extended matrix with dimension N * (N + 1)
@@ -52,6 +53,7 @@ class LUSolver(Solver):
     where coefficient matrix is either upper diagonal or lower diagonal.
     this base class implements the forward and backward substition methods
     """
+
     def __init__(self, verbose=True) -> None:
         """instantiate a solver object"""
         super().__init__(verbose)

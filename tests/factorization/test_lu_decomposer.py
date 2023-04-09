@@ -1,6 +1,6 @@
-from lu_decomposer import LUDecomposer
-from numpy.testing import assert_allclose
+from core.factorization.lu import LUDecomposer
 from numpy import matmul
+from numpy.testing import assert_allclose
 
 
 def test_lu_decomposer():

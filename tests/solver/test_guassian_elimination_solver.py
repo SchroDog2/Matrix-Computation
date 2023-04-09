@@ -1,6 +1,7 @@
 import pytest
 from numpy.testing import assert_allclose
-from gaussian_elimination_solver import GaussianEliminationSolver
+
+from core.solver.gaussian_elimination_solver import GaussianEliminationSolver
 
 
 @pytest.fixture
