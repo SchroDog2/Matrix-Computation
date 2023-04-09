@@ -1,8 +1,8 @@
 import numpy as np
 import pytest
 
-from numpy.testing import assert_equal
-from qr import classical_gram_schmidt, modified_gram_schmidt
+from numpy.testing import assert_almost_equal
+from qr import classical_gram_schmidt, modified_gram_schmidt, house_qr
 
 
 @pytest.fixture
@@ -17,18 +17,24 @@ def A():
         [1, 4, -2],
         [1, 4,  2],
         [1, -1, 0]
-    ]
+    ], dtype=float
 )
 
 def test_classical_gram_schmidt(A):
     Q, R = classical_gram_schmidt(A)
-    assert_equal(Q.T * Q, np.identity(3))
-    assert_equal(Q * R, np.matrix(A))
+    assert_almost_equal(Q.T * Q, np.identity(3))
+    assert_almost_equal(Q * R, np.matrix(A))
 
 
 def test_modified_gram_schmidt(A):
     Q, R = modified_gram_schmidt(A)
-    assert_equal(Q.T * Q, np.identity(3))
-    assert_equal(Q * R, np.matrix(A))
+    assert_almost_equal(Q.T * Q, np.identity(3))
+    assert_almost_equal(Q * R, np.matrix(A))
+    print(Q)
+    print(R)
 
 
+def test_householder_reflection(A):
+    Q, R = house_qr(A)
+    assert_almost_equal(Q.T * Q, np.identity(3))
+    assert_almost_equal(Q * R, np.matrix(A))
