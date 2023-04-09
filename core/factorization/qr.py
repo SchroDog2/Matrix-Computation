@@ -49,7 +49,6 @@ def modified_gram_schmidt(A) -> Tuple[np.matrix, np.matrix]:
     R = np.matrix(np.zeros([n, n]))
 
     for j in range(n):
-
         Q[:, j] = A[:, j]
 
         # loop previous orthoganolized column vectors
@@ -133,6 +132,9 @@ def house_qr(A, compute_q=True):
     A very good vedio that explains this algorithm
     https://www.youtube.com/watch?v=yyOXDSlY8d4&t=1002s
     """
+    if not isinstance(A, np.matrix):
+        A = np.matrix(A)
+    
     m, n = A.shape
 
     U = np.matrix(np.zeros([m, n]))
@@ -147,7 +149,9 @@ def house_qr(A, compute_q=True):
 
     # compute Q and return Q, R
     if compute_q:
-        if m > n:
+        if m == n:
+            I = np.identity(n)
+        elif m > n:
             I = np.row_stack([np.identity(n), np.zeros([1, n])])
         else:
             raise NotImplementedError()
@@ -157,3 +161,6 @@ def house_qr(A, compute_q=True):
     # return U, R
     else:
         return U, R[:min(m, n), :min(m, n)]
+
+# alias
+householder_reflection = house_qr
