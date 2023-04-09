@@ -1,5 +1,43 @@
 # Python Implementation
 
+## QR Factorization 
+```python
+import numpy as np
+
+from core.factorization.qr import classical_gram_schmidt, modified_gram_schmidt, house_qr
+
+A = np.matrix([
+    [1, -1, 4],
+    [1, 4, -2],
+    [1, 4,  2],
+    [1, -1, 0]
+], dtype=float)
+
+# classical Gram-Schmidt and Modified Gram-Schmidt
+Q, R = classical_gram_schmidt(A)
+Q, R = modified_gram_schmidt(A)
+
+# Householder Reflection method
+Q, R = house_qr(A)
+
+print(Q.T * Q)
+print(Q * R)
+```
+
+```
+print(Q.T * Q)
+[[ 1.00000000e+00 -1.11022302e-16  2.22044605e-16]
+ [-1.11022302e-16  1.00000000e+00  0.00000000e+00]
+ [ 2.22044605e-16  0.00000000e+00  1.00000000e+00]]
+
+print(Q * R)
+[[ 1.00000000e+00 -1.00000000e+00  4.00000000e+00]
+ [ 1.00000000e+00  4.00000000e+00 -2.00000000e+00]
+ [ 1.00000000e+00  4.00000000e+00  2.00000000e+00]
+ [ 1.00000000e+00 -1.00000000e+00  6.66133815e-16]]
+```
+
+
 ## Bairstow's Method for Solving Real and Imaginary Roots for Real Polynomials
 This is an implementation following this link:
 https://archive.nptel.ac.in/content/storage2/courses/122104019/numerical-analysis/Rathish-kumar/ratish-1/f3node9.html
