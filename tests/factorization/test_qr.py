@@ -17,8 +17,7 @@ def A():
         [1, 4, -2],
         [1, 4,  2],
         [1, -1, 0]
-    ], dtype=float
-)
+    ], dtype=float)
 
 def test_classical_gram_schmidt(A):
     Q, R = classical_gram_schmidt(A)
