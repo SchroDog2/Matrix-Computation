@@ -1,2 +1,12 @@
+# plot
+matplotlib
+
+# testing
 pytest
+
+# data processing
 pandas
+numpy
+
+# ipykernel
+ipykernel
