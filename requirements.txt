@@ -8,5 +8,8 @@ pytest
 pandas
 numpy
 
-# ipykernel
+# jupyter notebook
 ipykernel
+notebook
+PyQtWebEngine
+nbconvert[qtpdf]

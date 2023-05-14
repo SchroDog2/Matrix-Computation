@@ -188,3 +188,6 @@ dkms.conf
 
 # folders
 hw/
+
+# mac
+.DS_Store
