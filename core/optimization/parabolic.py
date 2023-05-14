@@ -19,8 +19,9 @@ def parabolic(f: callable, x0: float, x1: float, x2: float, tol: float = 1e-6):
         return 2 * f(x) * (a - b)
     
     ea = 1
-
+    it = 0
     while abs(ea) >= tol:
+        it += 1
         numerator = g1(x0, x1, x2) + g1(x1, x2, x0) + g1(x2, x0, x1)
         denominator = g2(x0, x1, x2) + g2(x1, x2, x0) + g2(x2, x0, x1)
         
@@ -32,6 +33,6 @@ def parabolic(f: callable, x0: float, x1: float, x2: float, tol: float = 1e-6):
         # below is the simple update. 
         # todo: use a more effective update logic
         x0, x1, x2 = x1, x2, x3
-        print(f"current iter: x0={x0}; x1={x1}; x2={x2}; x3={x3}; ea={ea}")
+        logging.info(f"iter {it}: x0={x0:.6f}; x1={x1:.6f}; x2={x2:.6f}; x3={x3:.6f}; ea={ea:.6f}")
 
     return x3
