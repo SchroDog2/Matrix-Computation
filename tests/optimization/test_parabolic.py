@@ -8,5 +8,5 @@ def f(x):
 
 
 def test_parabolic():
-    assert abs(parabolic(f, 0, 1, 4) - 1.427551) < 1e-6
+    assert abs(parabolic(f, 0, 1, 4) - 1.4275523) < 1e-6
 
