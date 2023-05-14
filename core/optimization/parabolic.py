@@ -31,8 +31,13 @@ def parabolic(f: callable, x0: float, x1: float, x2: float, tol: float = 1e-6):
 
         # update x0, x1, x2
         # below is the simple update. 
-        # todo: use a more effective update logic
-        x0, x1, x2 = x1, x2, x3
+        # x0, x1, x2 = x1, x2, x3
+
+        if x3 > x1:
+            x0, x1 = x1, x3
+        else:
+            x1, x2 = x3, x1
+            
         logging.info(f"iter {it}: x0={x0:.6f}; x1={x1:.6f}; x2={x2:.6f}; x3={x3:.6f}; ea={ea:.6f}")
 
     return x3
